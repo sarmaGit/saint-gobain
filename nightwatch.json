@@ -11,7 +11,8 @@
     "default" : {
       "desiredCapabilities": {
         "browserName": "chrome"
-      }
+      },
+      "use_xpath": true
     }
   }
 }
