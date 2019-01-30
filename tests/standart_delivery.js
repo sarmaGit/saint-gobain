@@ -3,22 +3,23 @@ module.exports = {
         browser
             .url('https://shop.saint-gobain.ru/search/material/gidroizolyacionnye-materialy-i-gruntovki')
             // click any goods
-            .waitForElementVisible('a[href="/node/74"')
-            .click('a[href="/node/74"')
+            .useXpath()
+            .waitForElementVisible('//div[contains(@class,"view-content")]//a[1]')
+            .click('//div[contains(@class,"view-content")]//a[1]')
             // set amount , click "to cart"
-            .waitForElementVisible('[id="spinner"]')
-            .setValue('[id="spinner"]',1)
-            .click('span.btn-buy.to-cart')
+            .waitForElementVisible('//input[@id="spinner"]')
+            .setValue('//input[@id="spinner"]',1)
+            .click('//span[contains(@class,"btn-buy")]')
             // choose delivery
-            .waitForElementVisible('[id="edit-checkout"]')
-            .click('[id="edit-checkout"]')
+            .waitForElementVisible('//input[@id="edit-checkout"]')
+            .click('//input[@id="edit-checkout"]')
             // type addres (clear value if need), finish order
-            .waitForElementVisible('[id="edit-customer-profile-shipping-string-address"]')
-            .clearValue('[id="edit-customer-profile-shipping-string-address"]')
-            .setValue('[id="edit-customer-profile-shipping-string-address"]',
+            .waitForElementVisible('//input[@id="edit-customer-profile-shipping-string-address"]')
+            .clearValue('//input[@id="edit-customer-profile-shipping-string-address"]')
+            .setValue('//input[@id="edit-customer-profile-shipping-string-address"]',
                 'Москва, улица Расплетина, 24')
-            .click('[id="edit-customer-profile-shipping-delivery-submit-1"]')
-            .assert.visible('[id="edit-continue"]')
+            .click('//input[@id="edit-customer-profile-shipping-delivery-submit-1"]')
+            .assert.visible('//input[@id="edit-continue"]')
             .end();
     }
 };
