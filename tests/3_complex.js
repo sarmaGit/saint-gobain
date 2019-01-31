@@ -9,7 +9,6 @@ module.exports = {
             choose complex decision
             MAIN -- https://shop.saint-gobain.ru/
             */
-
             .waitForElementVisible('//h3[text()[contains(.,"КОМПЛЕКСНЫЕ РЕШЕНИЯ")]]')
             .click('//h3[text()[contains(.,"КОМПЛЕКСНЫЕ РЕШЕНИЯ")]]')
             .pause(1000)
@@ -20,7 +19,6 @@ module.exports = {
             add to cart
             CATEGORY -- https://shop.saint-gobain.ru/content/xxx
             */
-
             .waitForElementVisible('//button[contains(@class,"btn-buy")]')
             .click('//button[contains(@class,"btn-buy")]')
 
@@ -37,7 +35,6 @@ module.exports = {
             type your personal data
             PERSONAL DATA -- https://shop.saint-gobain.ru/checkout/41872/shipping
             */
-
             .waitForElementVisible('//input[@id="edit-customer-profile-billing-field-customer-recepient-email-und-0-value"]')
             .setValue('//input[@id="edit-customer-profile-billing-field-customer-recepient-email-und-0-value"]',
                 user.email)
@@ -51,8 +48,8 @@ module.exports = {
             choose payment
             PAYMENT -- https://shop.saint-gobain.ru/checkout/41900/review
             */
-
             .waitForElementVisible('//input[@id="edit-continue"]')
+            // FINISH ORDER
             //.click('//input[@id="edit-continue"]')
             // .pause(4000)
 

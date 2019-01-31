@@ -14,5 +14,9 @@
       },
       "use_xpath": true
     }
+  },
+  "test_workers": {
+    "enabled": true,
+    "workers": "auto"
   }
 }

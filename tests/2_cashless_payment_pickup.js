@@ -5,25 +5,34 @@ module.exports = {
         browser
             .url('https://shop.saint-gobain.ru/search/material/gidroizolyacionnye-materialy-i-gruntovki')
 
-            // click any goods
-
+            /*
+            choose any goods
+            START -- https://shop.saint-gobain.ru/search/material/XXXX
+            */
             .waitForElementVisible('//div[contains(@class,"view-content")]//a[1]')
             .click('//div[contains(@class,"view-content")]//a[1]')
 
-            // set amount , click "to cart"
-
+            /*
+            set amount , click "to cart"
+            PRODUCT -- https://shop.saint-gobain.ru/product/XXXX
+            */
             .waitForElementVisible('//input[@id="spinner"]')
+            .clearValue('//input[@id="spinner"]')
             .setValue('//input[@id="spinner"]', 1)
             .click('//span[contains(@class,"btn-buy")]')
 
-            // choose delivery
-
+            /*
+            choose delivery
+            CART -- https://shop.saint-gobain.ru/cart
+            */
             .waitForElementVisible('//input[@id="edit-checkout"]')
             .click('//div[@id="edit-delivery-type"]/div[2]/div')
             .click('//input[@id="edit-checkout"]')
 
-            // type your personal data
-
+            /*
+            type addres (clear value if need), finish order
+            DELIVERY -- https://shop.saint-gobain.ru/checkout/XXXX
+            */
             .waitForElementVisible('//input[@id="edit-customer-profile-billing-field-customer-recepient-email-und-0-value"]')
             .setValue('//input[@id="edit-customer-profile-billing-field-customer-recepient-email-und-0-value"]',
                 user.email)
@@ -33,11 +42,13 @@ module.exports = {
             .click('//input[@id="edit-customer-profile-billing-agreement"]')
             .click('//input[@id="edit-continue"]')
 
-            // choose payment
-
+            /*
+            choose payment
+            PAYMENT -- https://shop.saint-gobain.ru/checkout/XXXX/review
+            */
             .waitForElementVisible('//input[@id="edit-continue"]')
-
             .click('//div[@id="edit-commerce-payment-payment-method"]/div[4]/div')
+            // FINISH ORDER
             // .click('//input[@id="edit-continue"]')
             // .pause(4000)
 
