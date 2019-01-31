@@ -1,26 +1,20 @@
-var user = require('./credentials.js');
+var user = require('../credentials/credentials.js');
 
 module.exports = {
-    'multicomfort': function (browser) {
+    'cashless payment and pick up': function (browser) {
         browser
-            .url('https://shop.saint-gobain.ru/multicomfort')
+            .url('https://shop.saint-gobain.ru/search/material/gidroizolyacionnye-materialy-i-gruntovki')
 
-            // type meters, calc and buy
+            // click any goods
 
-            .waitForElementVisible('//input[contains(@class,"field_text js-calc__fld")]')
-            .clearValue('//input[contains(@class,"field_text js-calc__fld")]')
-            .click('//input[contains(@class,"field_text js-calc__fld")]')
-            .setValue('//input[contains(@class,"field_text js-calc__fld")]', [33, browser.Keys.HOME])
-            // костыль
-            .setValue('//input[contains(@class,"field_text js-calc__fld")]', 33)
-            .click('//div[contains(@class,"btn btn_main")]')
-            .waitForElementVisible('//div[contains(@class,"b-tarif-list row row_indent row_flex")]/div[2]/div/div[3]')
-            .click('//div[contains(@class,"b-tarif-list row row_indent row_flex")]/div[2]/div/div[3]')
+            .waitForElementVisible('//div[contains(@class,"view-content")]//a[1]')
+            .click('//div[contains(@class,"view-content")]//a[1]')
 
-            // add to cart
+            // set amount , click "to cart"
 
-            .waitForElementVisible('//a[contains(@class,"btn btn_main sz_l")]')
-            .click('//a[contains(@class,"btn btn_main sz_l")]')
+            .waitForElementVisible('//input[@id="spinner"]')
+            .setValue('//input[@id="spinner"]', 1)
+            .click('//span[contains(@class,"btn-buy")]')
 
             // choose delivery
 
@@ -46,7 +40,7 @@ module.exports = {
             .click('//div[@id="edit-commerce-payment-payment-method"]/div[4]/div')
             // .click('//input[@id="edit-continue"]')
             // .pause(4000)
-            .end();
 
+            .end();
     }
 };
